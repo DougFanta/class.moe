@@ -9,10 +9,6 @@ const esquema = mongoose.Schema({
         type:Number,
         required:true
     },
-    professor:{
-        type:String,
-        required: true
-    },
     professor: { 
         type: mongoose.ObjectId, 
         ref: 'Professor', 

@@ -11,7 +11,7 @@ module.exports = uri => {
     
     mongoose.connection.on('disconnected', () => console.log('mongoose desconectado do servidor'))
     
-    mongoose.connection.on('SIGINT', () => mongoose.connection.close(() =>{ 
+    process.on('SIGINT', () => mongoose.connection.close(() =>{ 
 
         console.log('mongoose desconectado pelo encerramento da aplicação') 
         process.exit(0)
