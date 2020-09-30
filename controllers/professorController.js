@@ -28,9 +28,9 @@ controller.buscarUm = async(req, res) =>{
         let resultadoBusca = await Professor.findById(id)
         if(resultadoBusca){
             res.send(resultadoBusca)
+        }else{
+            res.status(404).end()
         }
-
-        res.status(404).end()
 
     } catch (erro) {
         console.log(erro)
@@ -40,8 +40,9 @@ controller.buscarUm = async(req, res) =>{
 
 controller.atualizar = async(req, res) => {
     try {
-        const id = req.body.id
+        const id = req.body._id
         let edicao = await Professor.findByIdAndUpdate(id, req.body)
+        console.log(edicao)
         if(edicao){
             res.status(204).end()
         }
@@ -54,7 +55,7 @@ controller.atualizar = async(req, res) => {
 
 controller.excluir = async(req,res) => {
     try {
-        const id = req.body.id
+        const id = req.body._id
         let res = await Professor.findByIdAndRemove(id)
         if(res){
             res.status(204).end()

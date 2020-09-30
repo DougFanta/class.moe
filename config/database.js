@@ -4,7 +4,8 @@ module.exports = uri => {
     mongoose.connect(uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        useFindAndModify:false
     })
 
     mongoose.connection.on('connected', () => console.log('mongoose conectado ao servidor'))

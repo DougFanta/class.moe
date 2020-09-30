@@ -40,7 +40,7 @@ controller.buscarUm = async(req, res) =>{
 
 controller.atualizar = async(req, res) => {
     try {
-        const id = req.body.id
+        const id = req.body._id
         let edicao = await Aulas.findByIdAndUpdate(id, req.body)
         if(edicao){
             res.status(204).end()
@@ -54,7 +54,7 @@ controller.atualizar = async(req, res) => {
 
 controller.excluir = async(req,res) => {
     try {
-        const id = req.body.id
+        const id = req.body._id
         let res = await Aulas.findByIdAndRemove(id)
         if(res){
             res.status(204).end()
