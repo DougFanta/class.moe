@@ -16,6 +16,11 @@ const esquema = mongoose.Schema({
     bio:{
         type:String,
         required: true
+    },
+    usuário:{
+        type: mongoose.ObjectId, 
+        ref: 'Usuarios', 
+        required: true
     }
 })
 

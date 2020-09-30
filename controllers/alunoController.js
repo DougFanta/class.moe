@@ -1,10 +1,10 @@
-const Professor = require('../models/Professor')
+const Aulas = require('../models/Aluno')
 
 const controller = {}
 
 controller.novo = async (req, res) =>{
     try{
-        await Professor.create(req.body)
+        await Aulas.create(req.body)
         res.status(201).end()
     }catch(erro){
         console.log(erro)
@@ -14,7 +14,7 @@ controller.novo = async (req, res) =>{
 
 controller.listar = async(req, res) =>{
     try {
-        let dados = await Professor.find().populate('usuario', 'login tipo')
+        let dados = await Aulas.find().populate('usuario', 'login tipo')
         res.send(dados)
     } catch (erro) {
         console.log(erro)
@@ -25,12 +25,12 @@ controller.listar = async(req, res) =>{
 controller.buscarUm = async(req, res) =>{
     try {
         const id = req.params.id
-        let resultadoBusca = await Professor.findById(id)
+        let resultadoBusca = await Aulas.findById(id)
         if(resultadoBusca){
             res.send(resultadoBusca)
-        }else{
-            res.status(404).end()
         }
+
+        res.status(404).end()
 
     } catch (erro) {
         console.log(erro)
@@ -41,8 +41,7 @@ controller.buscarUm = async(req, res) =>{
 controller.atualizar = async(req, res) => {
     try {
         const id = req.body._id
-        let edicao = await Professor.findByIdAndUpdate(id, req.body)
-        console.log(edicao)
+        let edicao = await Aulas.findByIdAndUpdate(id, req.body)
         if(edicao){
             res.status(204).end()
         }
@@ -56,7 +55,7 @@ controller.atualizar = async(req, res) => {
 controller.excluir = async(req,res) => {
     try {
         const id = req.body._id
-        let res = await Professor.findByIdAndRemove(id)
+        let res = await Aulas.findByIdAndRemove(id)
         if(res){
             res.status(204).end()
         }

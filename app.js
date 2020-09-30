@@ -13,6 +13,7 @@ const professor = require('./routes/professor')
 const aula = require('./routes/aula')
 const horario = require('./routes/horario')
 const usuarios = require('./routes/usuarios')
+const alunos = require('./routes/aluno')
 
 db(`mongodb+srv://douglasSoares:11723Dss@cluster0.hk58y.gcp.mongodb.net/class_moe?retryWrites=true&w=majority`)
 
@@ -28,5 +29,6 @@ app.use('/professor', professor)
 app.use('/aula', aula)
 app.use('/horario-aula', horario)
 app.use('/usuarios', usuarios)
+app.use('/alunos', alunos)
 
 module.exports = app;

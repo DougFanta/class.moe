@@ -16,4 +16,4 @@ const esquema = mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('Aula', esquema, 'aulas')
+module.exports = mongoose.model('Aulas', esquema, 'aulas')

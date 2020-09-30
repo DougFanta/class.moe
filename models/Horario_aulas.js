@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const esquema = mongoose.Schema({
-    materia_id:{
+    materia:{
         type: mongoose.ObjectId, 
-        ref: 'Professor', 
+        ref: 'Aulas', 
         required: true
     },
     dia_da_semana:{

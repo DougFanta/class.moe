@@ -14,7 +14,7 @@ controller.novo = async (req, res) =>{
 
 controller.listar = async(req, res) =>{
     try {
-        let dados = await Horario_aulas.find()
+        let dados = await Horario_aulas.find().populate('materia', 'materia professor')
         res.send(dados)
     } catch (erro) {
         console.log(erro)
@@ -59,7 +59,6 @@ controller.excluir = async(req,res) => {
         if(res){
             res.status(204).end()
         }
-        res.status(404).end()
     } catch (erro) {
         console.log(erro)
         res.status(500).send(erro)
