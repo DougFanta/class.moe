@@ -55,8 +55,8 @@ controller.atualizar = async(req, res) => {
 controller.excluir = async(req,res) => {
     try {
         const id = req.body._id
-        let res = await Aulas.findByIdAndRemove(id)
-        if(res){
+        let excluir = await Aulas.findByIdAndRemove(id)
+        if(excluir){
             res.status(204).end()
         }
         res.status(404).end()
