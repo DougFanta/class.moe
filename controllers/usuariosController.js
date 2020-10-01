@@ -16,6 +16,7 @@ controller.listar = async(req, res) =>{
     try {
         let dados = await Aulas.find()
         res.send(dados)
+        console.log(dados)
     } catch (erro) {
         console.log(erro)
         res.status(500).send(erro)
@@ -26,6 +27,7 @@ controller.buscarUm = async(req, res) =>{
     try {
         const id = req.params.id
         let resultadoBusca = await Aulas.findById(id)
+        console.log(resultadoBusca)
         if(resultadoBusca){
             res.send(resultadoBusca)
         }
@@ -42,6 +44,7 @@ controller.atualizar = async(req, res) => {
     try {
         const id = req.body._id
         let edicao = await Aulas.findByIdAndUpdate(id, req.body)
+        console.log(edicao)
         if(edicao){
             res.status(204).end()
         }else{
@@ -57,8 +60,9 @@ controller.atualizar = async(req, res) => {
 controller.excluir = async(req,res) => {
     try {
         const id = req.body._id
-        let res = await Aulas.findByIdAndRemove(id)
-        if(res){
+        let excluir = await Aulas.findByIdAndRemove(id)
+        console.log(excluir)
+        if(excluir){
             res.status(204).end()
         }
         res.status(404).end()
