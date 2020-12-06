@@ -1,0 +1,35 @@
+.mat-raised-button{
+    background-color:#04BF58 !important;
+    color: #FFFFFF;
+    align-items: center;
+    height: 2.4rem;
+
+}
+
+mat-card-header{
+    margin-bottom: 5px;
+}
+
+p{  
+    text-align: justify;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    margin-left: 10px !important;
+    padding: 5px 5px ;
+    padding-bottom: 0px;
+    font-size: 15px;
+}
+
+
+h1{
+    font-size: 20px;
+}
+
+mat-card-subtitle{
+    margin: 0 !important;
+}
+
+mat-card-actions{
+    display: flex ;
+    justify-content: space-between;
+}

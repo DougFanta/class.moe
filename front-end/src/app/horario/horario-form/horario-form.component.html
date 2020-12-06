@@ -1,0 +1,44 @@
+<form class="example-form" #f="ngForm" (ngSubmit)="salvar(f)" >
+<legend>Horários Disponíveis</legend>
+    
+    <mat-form-field class="example-form aula-form">
+        <mat-label>Professor</mat-label>
+        <mat-select [(ngModel)]="horario.professor" name="professor" required>
+            <mat-option *ngFor="let professor of professores" [value]="professor._id">{{professor.nome}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Dia da Semana</mat-label>
+        <mat-select [(ngModel)]="horario.dia_da_semana" name="dia_da_semana">
+          <mat-option value="Domingo">Domingo</mat-option>
+          <mat-option value="Segunda">Segunda</mat-option>
+          <mat-option value="Terça">Terça</mat-option>
+          <mat-option value="Quarta">Quarta</mat-option>
+          <mat-option value="Quinta">Quinta</mat-option>
+          <mat-option value="Sexta">Sexta</mat-option>
+          <mat-option value="Sabado">Sabado</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    <mat-form-field class="aline-input">
+        <mat-label>Das</mat-label>
+        <input matInput type="time" [(ngModel)]="horario.horario_disponivel_inicio" name="horario_disponivel_inicio">
+    </mat-form-field>
+    
+    <mat-form-field class="aline-input">
+      <mat-label>Até</mat-label>
+    <input matInput type="time" [(ngModel)]="horario.horario_disponivel_fim" name="horario_disponivel_fim">
+    </mat-form-field>
+    
+    <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+        <button mat-raised-button type="submit">
+          Salvar
+        </button>
+        <button mat-raised-button type="button" (click)="voltar(f)">
+          Voltar
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+</form>

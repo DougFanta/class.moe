@@ -1,0 +1,9 @@
+<button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item [routerLink]="['/professor']">Estudar</a>
+  <a mat-menu-item [routerLink]="['/dar-aulas']">Dar Aulas</a>
+  <a mat-menu-item [routerLink]="['/aula']">Aulas</a>
+  <a mat-menu-item [routerLink]="['/horario-aula']">Horarios</a>
+</mat-menu>

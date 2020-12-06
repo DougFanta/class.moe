@@ -1,0 +1,31 @@
+<h1>{{ title }}</h1>
+<form class="example-form" #f="ngForm" (ngSubmit)="salvar(f)" >
+<mat-form-field class="example-form aula-form">
+    <mat-label>Disciplina</mat-label>
+    <mat-select [(ngModel)]="aula.disciplina" name="disciplina" required>
+    <mat-option  *ngFor="let disciplina of disciplinas" [value]="disciplina._id">{{disciplina.nome}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field class="example-form aula-form">
+    <mat-label>Professor</mat-label>
+    <mat-select [(ngModel)]="aula.professor" name="professor" required>
+    <mat-option *ngFor="let professor of professores" [value]="professor._id">{{professor.nome}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field class="example-form aula-form">
+    <mat-label>Aluno</mat-label>
+    <mat-select [(ngModel)]="aula.aluno" name="aluno" required>
+    <mat-option  *ngFor="let aluno of alunos" [value]="aluno._id">{{aluno.nome}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-toolbar class="form-buttons">
+    <mat-toolbar-row>
+        <button mat-raised-button type="submit">
+          Salvar
+        </button>
+        <button mat-raised-button type="button" (click)="voltar(f)">
+          Voltar
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+</form>
