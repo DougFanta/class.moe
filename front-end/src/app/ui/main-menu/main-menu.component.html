@@ -1,0 +1,11 @@
+<button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item [routerLink]="['/professor']"><mat-icon>import_contacts</mat-icon>Estudar</a>
+  <a mat-menu-item [routerLink]="['/dar-aulas']"><mat-icon>description</mat-icon> Cadastro de Professores</a>
+  <a mat-menu-item [routerLink]="['/aula']"><mat-icon>wysiwyg</mat-icon> Aulas</a>
+  <a mat-menu-item [routerLink]="['/horario-aula']"><mat-icon>alarm</mat-icon> Horarios</a>
+  <a mat-menu-item [routerLink]="['/disciplina']"><mat-icon>article</mat-icon> Disciplinas</a>
+  <a mat-menu-item [routerLink]="['/aluno']"><mat-icon>person</mat-icon> Aluno</a>
+</mat-menu>

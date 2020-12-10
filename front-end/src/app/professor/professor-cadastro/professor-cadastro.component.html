@@ -1,0 +1,57 @@
+<main>
+<form class="example-form" #f="ngForm" (ngSubmit)="salvar(f)" >
+    <legend>Seus Dados</legend>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome Completo</mat-label>
+        <input matInput [(ngModel)]="professor.nome" name="nome" required>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>E-mail</mat-label>
+      <input type="email" matInput [(ngModel)]="professor.email" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Link da Foto</mat-label>
+        <input matInput type="url" [(ngModel)]="professor.avatar" name="avatar">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Whatsapp</mat-label>
+        <input type="tel" matInput placeholder="16 9999-9999" [(ngModel)]="professor.whatsapp" name="whatsapp">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">    
+        <mat-label>Resumo</mat-label>
+        <textarea matInput placeholder="Escreva aqui sobre você" [(ngModel)]="professor.bio" name="bio"></textarea>
+    </mat-form-field>  
+  
+    <legend>Sobre a aula</legend>
+    
+    <mat-form-field>
+        <mat-label>Disciplina</mat-label>
+        <mat-select [(ngModel)]="professor.disciplina" name="disciplina">
+        <mat-option  *ngFor="let disciplina of disciplinas" [value]="disciplina._id">{{disciplina.nome}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="aline-input">    
+      <mat-label>Valor hora/aula</mat-label>
+      <input matInput type="number"[(ngModel)]="professor.custo" name="custo">
+    </mat-form-field>
+    
+    <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+        <button mat-raised-button type="submit" class="button-green">
+          Salvar
+        </button>
+        <button mat-raised-button type="button" class="button-red" color="warn" (click)="voltar(f)">
+          Voltar
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+  </form>
+</main>
