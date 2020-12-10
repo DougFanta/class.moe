@@ -14,7 +14,7 @@ controller.novo = async (req, res) =>{
 
 controller.listar = async(req, res) =>{
     try {
-        let dados = await Aulas.find().populate('disciplina professor aluno', 'nome nome nome')
+        let dados = await Aulas.find().populate('disciplina professor aluno', 'nome')
         res.send(dados)
     } catch (erro) {
         console.log(erro)

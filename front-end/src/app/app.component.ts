@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
   <app-main-toolbar [appName]="title"></app-main-toolbar>
   <div id=content> 
     <router-outlet></router-outlet>
-    </div>
-    <br>
-    <app-main-footer></app-main-footer>
+  </div>
+  <br>
+  <app-main-footer></app-main-footer>
   
   `,
   styles: []

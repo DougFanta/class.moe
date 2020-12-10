@@ -108,3 +108,40 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .aula-form{
     margin-bottom: 20px;
 }
+
+.std-form {
+   
+    max-width: 80%;
+    margin: 0 auto;
+    
+    mat-form-field {
+       min-width: 150px;
+       max-width: 500px;
+       width: 100%;
+       margin-right: 30px;
+    }
+    
+}
+ 
+.form-buttons {
+    background: transparent;
+ 
+    mat-toolbar-row {
+       display: flex;
+       justify-content: space-between;
+       padding: 0px;
+    }
+}
+
+.button-green{
+    background-color:#00c851 !important;
+    color: #FFFFFF;
+    align-items: center;
+    height: 2.4rem;
+}
+
+.button-red{
+    color: #FFFFFF;
+    align-items: center;
+    height: 2.4rem;
+}

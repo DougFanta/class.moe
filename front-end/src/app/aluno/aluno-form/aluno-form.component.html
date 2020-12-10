@@ -1,0 +1,22 @@
+<h1>{{ title }}</h1>
+<form class="example-form" #f="ngForm" (ngSubmit)="salvar(f)" >
+    <mat-form-field class="example-full-width">
+        <mat-label>Aluno</mat-label>
+        <input matInput [(ngModel)]="aluno.nome" name="nome" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="aluno.email" name="email" required>
+    </mat-form-field>
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+          <button mat-raised-button type="submit" class="button-green">
+            Salvar
+          </button>
+          <button mat-raised-button type="button" class="button-red" color="warn" (click)="voltar(f)">
+            Voltar
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+</form>

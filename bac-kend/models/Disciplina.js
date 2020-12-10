@@ -4,6 +4,10 @@ const esquema = mongoose.Schema({
     nome: { 
         type: String, 
         required: true
+    },
+    area:{
+        type: String,
+        required: true
     }
 })
 

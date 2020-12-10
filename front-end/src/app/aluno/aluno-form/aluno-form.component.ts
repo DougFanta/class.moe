@@ -1,32 +1,20 @@
-import { AulaService } from './../aula.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DisciplinaService } from 'src/app/disciplina/disciplina.service';
-import { ProfessorService } from 'src/app/professor/professor.service';
-import { Location } from '@angular/common';
-import { AlunoService } from '../aluno.service';
 import { ActivatedRoute } from '@angular/router';
+import { AlunoService } from 'src/app/aula/aluno.service';
+import { Location } from '@angular/common';
+
 @Component({
-  selector: 'app-aula-form',
-  templateUrl: './aula-form.component.html',
-  styleUrls: ['./aula-form.component.scss']
+  selector: 'app-aluno-form',
+  templateUrl: './aluno-form.component.html',
+  styleUrls: ['./aluno-form.component.scss']
 })
-export class AulaFormComponent implements OnInit {
-  professores: any = []
+export class AlunoFormComponent implements OnInit {
+  aluno: any = {}
   alunos: any = []
-  disciplinas: any = []
-  aula: any  = {}
-  title : string = 'Nova Aula'
-
-  
-  
-
-  constructor(
-    private aulaSrv:AulaService,
-    private disciplinaSrv: DisciplinaService, 
-    private professorSrv: ProfessorService,
-    private alunoSrv: AlunoService,
+  title : string = 'Novo Aluno'
+  constructor(private alunoSrv: AlunoService,
     private location : Location,
     private snackBar : MatSnackBar,
     private actRoute : ActivatedRoute) { }
@@ -36,9 +24,9 @@ export class AulaFormComponent implements OnInit {
       try {
         // 1) Acionar o back-end para buscar esse registro
         // e disponibilizá-lo para edição        
-        this.aula = await this.aulaSrv.obterUm(this.actRoute.snapshot.params['id'])
+        this.aluno = await this.alunoSrv.obterUm(this.actRoute.snapshot.params['id'])
         // 2) Mudar o título da página
-        this.title = 'Editando aula'
+        this.title = 'Editando aluno'
       }
       catch(erro) {
         console.log(erro)
@@ -53,8 +41,6 @@ export class AulaFormComponent implements OnInit {
   async carregarDados() {
     try {
       this.alunos = await this.alunoSrv.listar()
-      this.professores = await this.professorSrv.listar()
-      this.disciplinas = await this.disciplinaSrv.listar()
     }
     catch(erro) {
       console.log(erro)
@@ -70,11 +56,11 @@ export class AulaFormComponent implements OnInit {
         // 1) Salvar os dados no back-end
         // Se o professor já existir (caso de edição), ele já terá
         // o atributo _id
-        if(this.aula._id) {
-          await this.aulaSrv.atualizar(this.aula) // Atualização
+        if(this.aluno._id) {
+          await this.alunoSrv.atualizar(this.aluno) // Atualização
         }
         else {
-          await this.aulaSrv.novo(this.aula)
+          await this.alunoSrv.novo(this.aluno)
         }
         // 2) Dar o feedback para o usuário
         this.snackBar.open('Dados salvos com sucesso.', 'OK',

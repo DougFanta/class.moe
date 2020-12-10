@@ -1,6 +1,6 @@
-import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class DisciplinaService {
     return this.http.put(this.apiUri, body).toPromise()
   }
   
+  excluir(id: string) {
+    
+    return this.http.request('DELETE', this.apiUri, {body: {_id: id}}).toPromise()
+  }
 
 }

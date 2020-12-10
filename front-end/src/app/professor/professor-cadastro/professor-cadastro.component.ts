@@ -1,7 +1,6 @@
-import { HorarioService } from '../../horario/horariosAulas.service';
 import { ProfessorService } from '../professor.service';
 import { Component, OnInit } from '@angular/core';
-import { DisciplinaService } from '../disciplina.service';
+import { DisciplinaService } from '../../disciplina/disciplina.service';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';

@@ -16,6 +16,10 @@ import { AulaComponentComponent } from './aula/aula-component/aula-component.com
 import { AulaFormComponent } from './aula/aula-form/aula-form.component';
 import { HorarioListComponent } from './horario/horario-list/horario-list.component';
 import { HorarioFormComponent } from './horario/horario-form/horario-form.component';
+import { DisciplinasListComponent } from './disciplina/disciplinas-list/disciplinas-list.component';
+import { DisciplinaFormComponent } from './disciplina/disciplina-form/disciplina-form.component';
+import { AlunoListComponent } from './aluno/aluno-list/aluno-list.component';
+import { AlunoFormComponent } from './aluno/aluno-form/aluno-form.component';
 
 
 
@@ -30,7 +34,11 @@ import { HorarioFormComponent } from './horario/horario-form/horario-form.compon
     AulaComponentComponent,
     AulaFormComponent,
     HorarioListComponent,
-    HorarioFormComponent
+    HorarioFormComponent,
+    DisciplinasListComponent,
+    DisciplinaFormComponent,
+    AlunoListComponent,
+    AlunoFormComponent
   ],
   imports: [
     BrowserModule,

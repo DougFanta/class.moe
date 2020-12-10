@@ -1,31 +1,27 @@
+import { AlunoService } from './../../aula/aluno.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HorarioService } from '../horariosAulas.service';
-
 
 @Component({
-  selector: 'app-horario-list',
-  templateUrl: './horario-list.component.html',
-  styleUrls: ['./horario-list.component.scss']
+  selector: 'app-aluno-list',
+  templateUrl: './aluno-list.component.html',
+  styleUrls: ['./aluno-list.component.scss']
 })
-export class HorarioListComponent implements OnInit {
+export class AlunoListComponent implements OnInit {
 
-  horarios: any = []
-  displayedColumns: string[] = ['professor', 'dia','disponibilidade','editar', 'excluir']   
-  constructor(private horarioSrv: HorarioService,
-    private snackBar : MatSnackBar,
-    ) { }
-
+  alunos: any = []
+  displayedColumns: string[] = ['nome','email','editar', 'excluir']
+  constructor(private disciplinaSrv: AlunoService,
+    private snackBar : MatSnackBar ) { }
 
   async ngOnInit(){
-    this.horarios = await this.horarioSrv.listar()
-    console.log(this.horarios)
+    this.alunos = await this.disciplinaSrv.listar()
   }
 
   async excluir(id: string) {
     if(confirm('Deseja realmente excluir?')) {
       try {
-        await this.horarioSrv.excluir(id)
+        await this.disciplinaSrv.excluir(id)
         // 1) Recarregar os dados da tabela
         this.ngOnInit()
         // 2) Dar feedback para o usuário com mensagem
@@ -42,7 +38,4 @@ export class HorarioListComponent implements OnInit {
       }
     }
   }
-  
-
- 
 }
